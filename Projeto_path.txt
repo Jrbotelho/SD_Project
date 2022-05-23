@@ -1,0 +1,48 @@
+Sistema de consulta de resultados esportivos.
+
+Base de dados conectado ao mainframe, que gera as views para cada utilizador.
+
+Divisao do acesso entre cliente e administrador
+
+Funcionalidades de Administradores:
+    Registrar novos utilizadores
+        Para a criaçao de um novo utilizador é necessaria a informaçao sobre
+            nome, email, password e contacto telefonico (alem do tipo de utilizador)
+    Criar / Gerar Equipes
+        Cada equipe tem um nome e uma imagem associada
+    Criar / Gerir Jogadores
+        Cada jogador tera um nome, posiçao, data de nascimento e equipe a qual pertence
+    Criar / Gerir Jogos 
+        Cada jogo tera informaçao de quais sao as equipes, local do evento, e data
+        
+        Cada jogo devera ter tambem uma lista de eventos, que serao preenchidos pelas informaçoes
+            dos utilizadoes
+
+Funcionalidades gerais
+    Registrar evento num jogo (utilizadores registrados)
+        Inicio / fim de jogo
+        Gol 
+            possui o jogador, a equipe, e a data e hora associada
+        Cartao (Amarelo / Vermelho)    
+            Possui o jogador, e a data e hora associada
+        Jogo interrompido
+        Jogo resumido
+    
+    Acompanhar jogo (utilizadores nao registrados)
+        Nome do jogo (Team A vs Team B)
+        Resultado atual
+        Localizaçao
+        Data
+        Listagem de eventos, ordenados de forma cronológica
+        (Eventos so serão apresentados apos aprovados por um administrador)
+    
+    Consultar Estatisticas (utilizadoes nao registrados)
+        Nome do melhor marcador de gols
+        Listagens ordenaveis das quipas com informaçao sobre jogos realizados,
+            nomeadamente: numero de jogos, numero de vitorias, numero de derrotas,
+                numero de empates.
+
+Utilizar de JPA para tratamento de base de dados
+
+Deve ser apresentado o diagrama Entidade-Relacionamento da estrutura junto ao relatorio
+

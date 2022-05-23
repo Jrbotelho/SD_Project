@@ -5,16 +5,16 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.6.7</version>
+		<version>2.7.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>JoaoEJoao</groupId>
-	<artifactId>SD_Project</artifactId>
+	<groupId>projeto_sd</groupId>
+	<artifactId>score_dei</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>SD_Project</name>
-	<description>SD_Project (thymeleaf)</description>
+	<name>score_dei</name>
+	<description>Resultado desportivo em direto</description>
 	<properties>
-		<java.version>18</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
