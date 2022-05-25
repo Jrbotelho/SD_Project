@@ -1,25 +1,79 @@
 package sd_project.score_dei;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-@Entity
+import static javax.persistence.GenerationType.SEQUENCE;
+
+@Entity(name = "Client")
+@Table(
+        name = "client",
+        uniqueConstraints = {
+                @UniqueConstraint(name = "client_email_unique", columnNames = "email"),
+                @UniqueConstraint(name = "client_user_unique", columnNames = "username")
+        }
+)
 public class Client {
 
     @Id
+    @SequenceGenerator(
+            name = "client_sequence",
+            sequenceName = "client_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = SEQUENCE,
+            generator = "client_sequence"
+    )
+
+    @Column(
+            name="id",
+            updatable = false
+    )
     private Long id;
+
+    @Column(
+           name="username",
+           nullable = false,
+            columnDefinition = "TEXT"
+    )
     private String username;
+
+    @Column(
+            name="password",
+            nullable = false,
+            columnDefinition = "TEXT"
+    )
     private String password;
+
+    @Column(
+            name="email",
+            nullable = false,
+            columnDefinition = "TEXT"
+    )
     private String email;
+
+    @Column(
+            name="contact",
+            nullable = false,
+            columnDefinition = "TEXT"
+    )
     private String contact;
 
-    public Client(Long id, String username, String password, String email, String contact) {
-        this.id = id;
+    @Column(
+            name="is_admin",
+            nullable = false
+    )
+    private Boolean isAdmin;
+
+    public Client(String username, String password, String email, String contact, Boolean isAdmin) {
         this.username = username;
         this.password = password;
         this.email = email;
         this.contact = contact;
+        this.isAdmin = isAdmin;
     }
+
+    public Client() { }
 
     public Long getId() {
         return id;
@@ -61,6 +115,14 @@ public class Client {
         this.contact = contact;
     }
 
+    public Boolean getAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(Boolean admin) {
+        isAdmin = admin;
+    }
+
     @Override
     public String toString() {
         return "Client{" +
@@ -69,6 +131,7 @@ public class Client {
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", contact='" + contact + '\'' +
+                ", isAdmin=" + isAdmin +
                 '}';
     }
 }
